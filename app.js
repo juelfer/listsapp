@@ -1,5 +1,6 @@
 $( document ).ready( function () {
     let addListInput = $( '.addListWrapper input' );
+    let addListButton = $( '.addListWrapper button');
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}`
     const createListString = name =>
         `<div class="list" id="${generateId('list')}">
@@ -27,15 +28,21 @@ $( document ).ready( function () {
 
          // Limpiamos el texto del input
          addListInput.val( '' );
-    }
+    };
 
 
     // Listeners
-     addListInput.on( 'keyup', function ( event ) {
+    addListInput.on( 'keyup', function ( event ) {
         if ( event.keyCode === 13 ) {
            appendNewList();
         }
-    } )
+    } );
+
+    addListButton.on( 'click', function ( event ) {
+        appendNewList();
+    } );
+
+    //incluir accion para crear lista a través de botón
 
      $('.lists').on('click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
