@@ -89,4 +89,9 @@ $( document ).ready( function () {
            // console.log(taskName);
         }
      });
+
+     $('.tasks').on('click', '.task button', function(event) {
+        let taskNode = $(event.target.parentNode);
+        taskNode.detach();
+     });
 } )
