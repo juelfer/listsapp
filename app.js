@@ -18,44 +18,22 @@ $( document ).ready( function () {
             </div>
         </div>`
 
-    const createTaskString = name =>
-        `<div class="task">
-            <p>${name}</p>
-                <button>Delete Task</button>
-        </div>`
-               
     const appendNewList = () => {
          //  cogemos el text del input
          let listName = addListInput.val().trim();
          if (listName === '') {
              return;
             };
-
-         // creamos el nodo .list
+        // creamos el nodo .list
          let list = $( createListString( listName ) );
-        // console.log(list.attr("id"));
-
-         // añadimos el node al DOM
+        // añadimos el node al DOM
          $( '.lists' ).append( list )
-
-         // Limpiamos el texto del input
+        // Limpiamos el texto del input
          addListInput.val( '' );
     };
 
-    const appendNewTask = (event) => {
-        let addTaskInput = $(event.target.parentNode.querySelector('input'));
-        //let addTaskButton = $(event.target.parentNode.querySelector('button'));
-        let taskName = addTaskInput.val().trim();
-        if ( taskName === '' ) {
-            return;
-        };
-        let task = $( createTaskString( taskName ));
-        let taskNode = $(event.target.parentNode.parentNode.querySelector('.tasks'));
-        $(taskNode).append( task );
-        addTaskInput.val( '' );
-    };
-
     // Listeners
+
     addListInput.on( 'keyup', function ( event ) {
         if ( event.keyCode === 13 ) {
            appendNewList(event);
@@ -66,32 +44,47 @@ $( document ).ready( function () {
         appendNewList(event);
     } );
 
-     $('.lists').on('click', '.listHeader button', function(event) {
+     $( '.lists' ).on( 'click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
         listNode.detach();
      });
 
-    let addFromTaskInput = $( '.addTask input' );
-    let addFromTaskButton = $( '.addTask button' );
+    // Construir tareas
 
-    addFromTaskButton.on('click', function (event) {
-   // $('.addTask button').on('click', function (event) {
-        //let taskNode = $(event.target.parentNode.prev);
-        appendNewTask(event);
-        //console.log($taskNode);
-     })
+    const createTaskString = name =>
+        `<div class="task">
+            <div class="text"><p>${name}</p></div>
+            <button>Delete Task</button>
+        </div>`
 
-    addFromTaskInput.on( 'keyup', function (event) {
-    //$('.addTask input').on('keyup', function (event){
+    const appendNewTask = (event) => {
+        let taskName = $(event.target.parentNode.querySelector('input')).val().trim();
+        if ( taskName === '' ) {
+            return;
+        };
+        let task = $( createTaskString( taskName ));
+        $(event.target.parentNode.parentNode.querySelector('.tasks')).append( task );
+        $(event.target.parentNode.querySelector('input')).val( '' );
+    };
+    
+    //Funciones delegadas en tareas
+    
+    $( document ).on( 'keyup', '.lists .list .addTask input', function (event) {
         if ( event.keyCode === 13 ) {
-           // let taskNode = $(event.target.parentNode.prev);
             appendNewTask(event);
-           // console.log(taskName);
         }
      });
+    
+    $( document ).on('click', '.lists .list .addTask button', function (event) {
+        appendNewTask(event);
+     })
 
-     $('.tasks').on('click', '.task button', function(event) {
+    $( document ).on('click', '.task button', function(event) {
         let taskNode = $(event.target.parentNode);
         taskNode.detach();
      });
-} )
+    
+} );
+
+
+
