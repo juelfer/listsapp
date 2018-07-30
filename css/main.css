@@ -7,12 +7,26 @@ html {
 .addListWrapper {
     width: 97vw;
     height: 6vh;
-    background: red;
+    background:navy;
     text-align: right;
     position: fixed;
     left: 0;
     top: 0;
     padding: 2vh 2vw 1vh 1vw;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.addListWrapper input {
+    color: white;
+    background-color: navy;
+    outline: none;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.addListWrapper input::placeholder {
+    color: goldenrod;
 }
 
 .lists {
@@ -28,6 +42,8 @@ html {
     min-height: 20%;
     margin: 1vh 1vw 1vh 1vw;
     padding: 0.5vh 0.5vw 0.5vh 0.5vw; 
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .listHeader {
@@ -50,3 +66,12 @@ html {
 .task button {
     margin-right: 0.5em;
 }
+
+
+/*
+grosor borde:
+border-width
+
+borde redondeado:
+border-radius 
+*/
