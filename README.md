@@ -10,8 +10,8 @@ La misión del app es poder gestionar la metodología scrum. De modo que tengamo
 - [ ] Mejorar el estilo del boceto
 - [x] Añadir listas nuevas
 - [x] Borrar listas
-- [ ] Añadir tareas a las listas
-- [ ] Borrar tareas 
+- [x] Añadir tareas a las listas
+- [x] Borrar tareas 
 
 Opcional:
 

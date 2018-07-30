@@ -1,0 +1,32 @@
+html {
+    background: grey;
+    width: 100vw;
+    height: 100vh;
+}
+
+.addListWrapper {
+    width: 96vw;
+    height: 6vh;
+    background: red;
+    text-align: right;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vh;
+}
+
+.lists {
+    margin-top:10vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list {
+    background: white;
+    min-height: 20%;
+}
