@@ -7,14 +7,14 @@ $( document ).ready( function () {
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
                 <h4>${name}</h4>
-                <button>Delete list</button>
-            </div>
-            <div class="tasks">
-                
+                <button class="deleteList">X</button>
             </div>
             <div class="addTask">
                 <input type="text">
                 <button>Add task</button>
+            </div>
+            <div class="tasks">
+                
             </div>
         </div>`
 
@@ -53,8 +53,8 @@ $( document ).ready( function () {
 
     const createTaskString = name =>
         `<div class="task">
-            <div class="text"><p>${name}</p></div>
-            <button>Delete Task</button>
+            <button class= "delete Task">X</button>
+            <div class="text">${name}</div>
         </div>`
 
     const appendNewTask = (event) => {
