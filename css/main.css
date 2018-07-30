@@ -12,10 +12,7 @@ html {
     position: fixed;
     left: 0;
     top: 0;
-    padding-top: 2vh;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    padding-bottom: 2vh;
+    padding: 1vh 1vw 1vw 1vh;
 }
 
 .lists {
@@ -29,4 +26,5 @@ html {
 .list {
     background: white;
     min-height: 20%;
+    margin: 1vh 1vw 1vw 1vw;
 }
