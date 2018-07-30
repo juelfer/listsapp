@@ -5,14 +5,14 @@ html {
 }
 
 .addListWrapper {
-    width: 96vw;
+    width: 97vw;
     height: 6vh;
     background: red;
     text-align: right;
     position: fixed;
     left: 0;
     top: 0;
-    padding: 1vh 1vw 1vw 1vh;
+    padding: 2vh 2vw 1vh 1vw;
 }
 
 .lists {
