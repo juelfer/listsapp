@@ -1,8 +1,10 @@
 html {
-    background: grey;
     width: 100vw;
     height: 100vh;
+    background-image: url(../img/fondo.jpg);
 }
+
+
 
 .addListWrapper {
     width: 97vw;
@@ -42,7 +44,7 @@ html {
     background: white;
     min-height: 20%;
     margin: 1vh 1vw 1vh 1vw;
-    padding: 0.5vh 0.5vw 0.5vh 0.5vw; 
+    padding: 0.25vh 0.5vw 0.5vh 0.25vw; 
     border-radius: 10px;
     font-family: 'Roboto', sans-serif;
     }
@@ -67,12 +69,3 @@ html {
 .task button {
     margin-right: 0.5em;
 }
-
-
-/*
-grosor borde:
-border-width
-
-borde redondeado:
-border-radius 
-*/
