@@ -6,8 +6,8 @@ $( document ).ready( function () {
     const createListString = name =>
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
+                <button class="deleteList">X</button>   
                 <h4>${name}</h4>
-                <button class="deleteList">X</button>
             </div>
             <div class="addTask">
                 <input type="text">
