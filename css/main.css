@@ -130,10 +130,18 @@ button {
 }
 
 .task button {
-    margin-right: 1em;
+    margin-right: 0.25vw;
     border: 2px solid red;
     background-color: red;
     color: white;
+    font-weight: 700;
+    padding: 0.25vh 0.25vw 0.25vh 0.25vw;
+}
+
+.task input {
+    margin-right: 0.25vw;
+    background-color: white;
+    color: green;
     font-weight: 700;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw;
 }

@@ -54,7 +54,8 @@ $( document ).ready( function () {
     const createTaskString = name =>
         `<div class="task">
             <button class= "delete Task">X</button>
-            <div class="text">${name}</div>
+            <input type="checkbox" class="taskCheck">
+            <div contenteditable="true"class="text">${name}</div>
         </div>`
 
     const appendNewTask = (event) => {
@@ -84,6 +85,12 @@ $( document ).ready( function () {
         taskNode.detach();
      });
     
+    $( document ).on( 'keydown', '.tasks .task .text', function (event) {
+        if ( event.keyCode === 13 ) {
+           ( event.target.blur() );
+        }
+    })
+
 } );
 
 
