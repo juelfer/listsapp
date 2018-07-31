@@ -2,14 +2,19 @@ html {
     width: 100vw;
     height: 100vh;
     background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
-
+body{
+    overflow-x: hidden;
+}
 
 .addListWrapper {
     width: 97vw;
     height: 6vh;
-    background:navy;
+    background:rgb(150, 150, 15,0.4);
     text-align: right;
     position: fixed;
     left: 0;
@@ -20,7 +25,8 @@ html {
 
 .addListWrapper input {
     color: white;
-    background-color: navy;
+    font-weight: 700;
+    background-color: rgb(150, 15, 15, 0);
     outline: none;
     border-top: 0px;
     border-left: 0px;
@@ -28,7 +34,8 @@ html {
 }
 
 .addListWrapper input::placeholder {
-    color: goldenrod;
+    color: rgb(252, 202, 78);
+    font-weight: 700;
 }
 
 .lists {
@@ -38,15 +45,17 @@ html {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
+    border:0;
 }
 
 .list {
-    background: white;
+    background: rgb(250, 150, 0, 0.5);
     min-height: 20%;
-    margin: 1vh 1vw 1vh 1vw;
+    margin: 1vh 0.5vw 1vh 0.5vw;
     padding: 0.25vh 0.5vw 0.5vh 0.25vw; 
     border-radius: 10px;
     font-family: 'Roboto', sans-serif;
+    color: white;
     }
 
 .listHeader {
@@ -60,6 +69,9 @@ html {
     margin-left: 0.5em;
 }
 
+.tasks {
+    padding: 0.25vh 0.5vw 0.5vh 0.25vw; 
+}
 .task {
     display: flex;
     justify-content: left;
