@@ -12,14 +12,14 @@ body{
 }
 
 .addListWrapper {
-    width: 97vw;
-    height: 6vh;
+    width: 90vw;
+    height: 10vh;
     background:rgb(150, 150, 15,0.4);
     text-align: right;
     position: fixed;
     left: 0;
     top: 0;
-    padding: 2vh 2vw 1vh 1vw;
+    padding: 0vh 5vw 0vh 5vw;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -31,6 +31,8 @@ body{
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
+    height: 3.5vh;
+    padding-top: 3vh;
 }
 
 .addListWrapper input::placeholder {
@@ -38,8 +40,40 @@ body{
     font-weight: 700;
 }
 
+@media screen and (max-width: 600px) {
+    .addListWrapper {
+        width: 90vw;
+        height: 6vh;
+        background:rgb(150, 150, 15,0.4);
+        text-align: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding: 0vh 5vw 0vh 5vw;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .addListWrapper input {
+        color: white;
+        font-weight: 700;
+        background-color: rgb(150, 15, 15, 0);
+        outline: none;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        height: 3.5vh;
+        vertical-align: middle;
+        padding-top: 0.5vh;
+    }
+    
+    .addListWrapper input::placeholder {
+        color: rgb(252, 202, 78);
+        font-weight: 700;
+    }
+} 
+
 .lists {
-    margin-top:10vh;
+    margin-top:12vh;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
