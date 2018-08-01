@@ -111,13 +111,15 @@ button {
 }
 
 .listHeader button {
-    height: 1.5em;
-    margin-top: 1em;
-    margin-right: 1em;
-    background-color:red;
+    height: 2em;
+    width: 2em;
+    margin-top: 0.85em;
+    margin-right: 0.5em;
+    background-color: red;
     border: 2px solid red;
     color: white;
     font-weight: 700;
+    border-radius: 100%;
 }
 
 .tasks {
@@ -130,12 +132,17 @@ button {
 }
 
 .task button {
-    margin-right: 0.25vw;
-    border: 2px solid red;
+    margin-right: 0.45vw;
+    margin-bottom: 0.1vh;
+    border: none;
     background-color: red;
     color: white;
+    border-radius: 100%;
+    min-height: 1em;
+    min-width: 1em;
+    font-size: 0.75em;
     font-weight: 700;
-    padding: 0.25vh 0.25vw 0.25vh 0.25vw;
+    padding-bottom: 0.2em;
 }
 
 .task input {
@@ -148,7 +155,6 @@ button {
 
 .addTask{
     padding: 0.25vh 0.25vw 0.25vh 0.25vw;
-
 }
 
 .addTask button{
@@ -156,5 +162,29 @@ button {
     background-color: rgb(150, 150, 15);
     color: goldenrod;
     font-weight: 700;
+}
 
+.tasks .task .text:focus {
+    background-color: white;
+    color: blue;
+}
+
+.taskCheck {
+    margin-right: 0.45vw;
+    margin-bottom: 0.1vh;
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 100%;
+    min-height: 1em;
+    min-width: 1em;
+    font-size: 0.75em;
+    font-weight: 700;
+    padding: 0.2em;
+}
+
+.taskCheck:hover {
+    background-color:white;
+    color:green;
+    cursor: default;
 }

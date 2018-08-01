@@ -6,7 +6,7 @@ $( document ).ready( function () {
     const createListString = name =>
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
-                <button class="deleteList">X</button>   
+                <button class="deleteList">x</button>   
                 <h4>${name}</h4>
             </div>
             <div class="addTask">
@@ -53,8 +53,8 @@ $( document ).ready( function () {
 
     const createTaskString = name =>
         `<div class="task">
-            <button class= "delete Task">X</button>
-            <input type="checkbox" class="taskCheck">
+            <button class= "delete Task">x</button>
+            <div class="taskCheck">&#10004;</div>
             <div contenteditable="true"class="text">${name}</div>
         </div>`
 
@@ -80,7 +80,7 @@ $( document ).ready( function () {
         appendNewTask(event);
      })
 
-    $( document ).on('click', '.task button', function(event) {
+    $( document ).on( 'click', '.task button', function(event) {
         let taskNode = $(event.target.parentNode);
         taskNode.detach();
      });
@@ -91,6 +91,14 @@ $( document ).ready( function () {
         }
     })
 
+    $( document ).on( 'click', '.tasks .task .taskCheck', function (event) {
+       if ($(event.target.parentNode.querySelector('.text')).css('text-decoration')[0]!=="n") {
+            $(event.target.parentNode.querySelector('.text')).css('text-decoration',"none");     
+        }
+        else {
+            $(event.target.parentNode.querySelector('.text')).css('text-decoration',"line-through"); 
+        }
+    } )
 } );
 
 
