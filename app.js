@@ -1,8 +1,14 @@
 $( document ).ready( function () {
     let addListInput = $( '.addListWrapper input' );
     let addListButton = $( '#addList' );
-    let saveButton = $( '#save' );
-    let loadButton = $( '#load' );
+    /*let saveButton = $( '#save' );*/
+    /*let loadButton = $( '#load' );*/
+
+    $( window ).on( "load", function () {
+        if ('mylists' in localStorage ) {
+            $('.lists').html((JSON.parse(localStorage.getItem('mylists'))));
+         }
+    });
     
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}`
     const createListString = name =>
@@ -32,23 +38,23 @@ $( document ).ready( function () {
          $( '.lists' ).append( list )
         // Limpiamos el texto del input
          addListInput.val( '' );
+         saveLists();
     };
 
     const saveLists = () => {
         if (typeof(Storage) !== "undefined" ) {
             localStorage.setItem('mylists', JSON.stringify($('.lists').html()));
-            alert("Lists saved");
         }
         else{
             alert("Sorry, your browser does not suppor localStorage");
         }
     }
 
-    const loadLists = () => {
+    /*const loadLists = () => {
         if ('mylists' in localStorage ) {
            $('.lists').html((JSON.parse(localStorage.getItem('mylists'))));
         }
-    }
+    }*/
 
     // Listeners
 
@@ -69,11 +75,12 @@ $( document ).ready( function () {
      $( '.lists' ).on( 'click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
         listNode.detach();
+        saveLists();
      });
 
-     loadButton.on( 'click', function () {
+    /*loadButton.on( 'click', function () {
          loadLists();
-     } )
+     } )*/
 
     // Construir tareas
 
@@ -92,6 +99,7 @@ $( document ).ready( function () {
         let task = $( createTaskString( taskName ));
         $(event.target.parentNode.parentNode.querySelector('.tasks')).append( task );
         $(event.target.parentNode.querySelector('input')).val( '' );
+        saveLists();
     };
     
     //Funciones delegadas en tareas
@@ -109,6 +117,7 @@ $( document ).ready( function () {
     $( document ).on( 'click', '.task button', function(event) {
         let taskNode = $(event.target.parentNode);
         taskNode.detach();
+        saveLists();
      });
     
     $( document ).on( 'keydown', '.tasks .task .text', function (event) {
