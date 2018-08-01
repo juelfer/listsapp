@@ -19,7 +19,7 @@ Opcional:
 - [?] Borrar tareas 
 - [x] Editar texto de la tarea.
 - [ ] Cambiar el color de las tareas individualmente (Se debe buscar un plugin de terceros de color-picker)
-- [ ] Guardar el estado en localStorage
+- [x] Guardar el estado en localStorage
 
 
 ## Boceto

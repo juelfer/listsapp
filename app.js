@@ -1,6 +1,8 @@
 $( document ).ready( function () {
     let addListInput = $( '.addListWrapper input' );
-    let addListButton = $( '.addListWrapper button');
+    let addListButton = $( '#addList' );
+    let saveButton = $( '#save' );
+    let loadButton = $( '#load' );
     
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}`
     const createListString = name =>
@@ -32,6 +34,22 @@ $( document ).ready( function () {
          addListInput.val( '' );
     };
 
+    const saveLists = () => {
+        if (typeof(Storage) !== "undefined" ) {
+            localStorage.setItem('mylists', JSON.stringify($('.lists').html()));
+            alert("Lists saved");
+        }
+        else{
+            alert("Sorry, your browser does not suppor localStorage");
+        }
+    }
+
+    const loadLists = () => {
+        if ('mylists' in localStorage ) {
+           $('.lists').html((JSON.parse(localStorage.getItem('mylists'))));
+        }
+    }
+
     // Listeners
 
     addListInput.on( 'keyup', function ( event ) {
@@ -44,10 +62,18 @@ $( document ).ready( function () {
         appendNewList(event);
     } );
 
+    saveButton.on( 'click', function () {
+        saveLists();
+    })
+
      $( '.lists' ).on( 'click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
         listNode.detach();
      });
+
+     loadButton.on( 'click', function () {
+         loadLists();
+     } )
 
     // Construir tareas
 
