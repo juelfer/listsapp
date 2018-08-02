@@ -5,6 +5,7 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
+    background-size: 100%;
 }
 
 body{
@@ -110,24 +111,20 @@ button {
     padding: 0.1vh 0.1vw 0.1vh 0.5vw;
 }
 
-.listHeader button {
-    height: 2em;
-    width: 2em;
-    margin-top: 0.85em;
-    margin-right: 0.5em;
-    background-color: red;
-    border: 2px solid red;
-    color: white;
-    font-weight: 700;
-    border-radius: 100%;
+.deleteList {
+    height: 32px;
+    margin-top: 0.8em;
+    float: right;
 }
 
 .tasks {
+    max-width: 30vw;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw; 
 }
 .task {
     display: flex;
     justify-content: left;
+    max-width: 30vw;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw;
 }
 
@@ -148,12 +145,19 @@ button {
     text-align: center;
 }
 
+.deleteTask:hover{
+    background: white;
+    cursor: default;
+    color: red;
+}
+
 .task input {
     margin-right: 0.25vw;
     background-color: white;
     color: green;
     font-weight: 700;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw;
+    max-width: 30vw;
 }
 
 .addTask{
@@ -170,8 +174,7 @@ button {
 .taskText:focus {
     background-color: white;
     color: blue;
-    border: none;
-}
+    }
 
 .taskCheck {
     margin-right: 0.45vw;
@@ -179,7 +182,7 @@ button {
     border: none;
     background-color: green;
     color: white;
-    border-radius: 10%;
+    border-radius: 20%;
     min-height: 1em;
     min-width: 1em;
     max-height: 1em;
@@ -194,3 +197,25 @@ button {
     color:green;
     cursor: default;
 }
+
+.clearTasks {
+        height: 32px;
+        margin-top: 0.8em;
+        float: right;
+}
+
+/*.clearTasks {
+    height: 2em;
+    width: 2em;
+    margin-top: 0.85em;
+    margin-right: 0.5em;
+    background-color: orange;
+    border: 2px solid orange;
+    color: black;
+    border-radius: 100%;
+ }*/
+
+ /*.clearTasks span{
+     size:2em;
+     text-align: center;
+ }*/

@@ -1,9 +1,7 @@
 $( document ).ready( function () {
     let addListInput = $( '.addListWrapper input' );
     let addListButton = $( '#addList' );
-    /*let saveButton = $( '#save' );*/
-    /*let loadButton = $( '#load' );*/
-
+    
     $( window ).on( "load", function () {
         if ('data' in localStorage ) {
             $('.lists').html((JSON.parse(localStorage.getItem('data'))));
@@ -14,8 +12,9 @@ $( document ).ready( function () {
     const createListString = name =>
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
-                <button class="deleteList">x</button>   
+                <img class="deleteList" src="img/icon-delete.png">   
                 <h4>${name}</h4>
+                <img src="img/icon-warning.png" class="clearTasks">
             </div>
             <div class="addTask">
                 <input type="text">
@@ -64,13 +63,13 @@ $( document ).ready( function () {
         saveLists();
     } );
 
-    $( '.lists' ).on( 'click', '.listHeader button', function(event) {
+    $( '.lists' ).on( 'click', '.deleteList', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
         listNode.detach();
         saveLists();
-     });
+    });
 
-     // Construir tareas
+    // Construir tareas
 
     const createTaskString = (name) =>
         `<div class="task">
@@ -112,7 +111,6 @@ $( document ).ready( function () {
     
     $( document ).on( 'keydown', '.taskText', function (event) {
         if ( event.keyCode === 13 ) {
-            /*alert("se ha pulsado intro");*/
            ( event.target.blur() );
            saveLists();
         }
@@ -127,6 +125,11 @@ $( document ).ready( function () {
         }
         saveLists();
     } );
+
+    $( document ).on( 'click', '.clearTasks', function() {
+        $(event.target.parentNode.parentNode.querySelector('.tasks')).empty();
+        saveLists();
+    });
 } );
 
 
