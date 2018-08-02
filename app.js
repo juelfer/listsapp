@@ -5,8 +5,8 @@ $( document ).ready( function () {
     /*let loadButton = $( '#load' );*/
 
     $( window ).on( "load", function () {
-        if ('mylists' in localStorage ) {
-            $('.lists').html((JSON.parse(localStorage.getItem('mylists'))));
+        if ('data' in localStorage ) {
+            $('.lists').html((JSON.parse(localStorage.getItem('data'))));
          }
     });
     
@@ -43,52 +43,40 @@ $( document ).ready( function () {
 
     const saveLists = () => {
         if (typeof(Storage) !== "undefined" ) {
-            localStorage.setItem('mylists', JSON.stringify($('.lists').html()));
+            localStorage.setItem('data', JSON.stringify($('.lists').html()));
         }
         else{
             alert("Sorry, your browser does not suppor localStorage");
         }
     }
 
-    /*const loadLists = () => {
-        if ('mylists' in localStorage ) {
-           $('.lists').html((JSON.parse(localStorage.getItem('mylists'))));
-        }
-    }*/
-
     // Listeners
 
     addListInput.on( 'keyup', function ( event ) {
         if ( event.keyCode === 13 ) {
-           appendNewList(event);
+           appendNewList();
+           saveLists();
         }
     } );
 
     addListButton.on( 'click', function ( event ) {
         appendNewList(event);
+        saveLists();
     } );
 
-    saveButton.on( 'click', function () {
-        saveLists();
-    })
-
-     $( '.lists' ).on( 'click', '.listHeader button', function(event) {
+    $( '.lists' ).on( 'click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
         listNode.detach();
         saveLists();
      });
 
-    /*loadButton.on( 'click', function () {
-         loadLists();
-     } )*/
+     // Construir tareas
 
-    // Construir tareas
-
-    const createTaskString = name =>
+    const createTaskString = (name) =>
         `<div class="task">
-            <button class= "delete Task">x</button>
+            <div class="deleteTask">&#128473;</div>
             <div class="taskCheck">&#10004;</div>
-            <div contenteditable="true"class="text">${name}</div>
+            <div class="taskText" contenteditable="true">${name}</div>
         </div>`
 
     const appendNewTask = (event) => {
@@ -104,36 +92,41 @@ $( document ).ready( function () {
     
     //Funciones delegadas en tareas
     
-    $( document ).on( 'keyup', '.lists .list .addTask input', function (event) {
+    $( document ).on( 'keyup', '.addTask input', function (event) {
         if ( event.keyCode === 13 ) {
             appendNewTask(event);
+            saveLists();
         }
-     });
+     } );
     
-    $( document ).on('click', '.lists .list .addTask button', function (event) {
+    $( document ).on( 'click', '.addTask button', function (event) {
         appendNewTask(event);
-     })
+        saveLists();
+     });
 
-    $( document ).on( 'click', '.task button', function(event) {
+    $( document ).on( 'click', '.deleteTask', function(event) {
         let taskNode = $(event.target.parentNode);
         taskNode.detach();
         saveLists();
-     });
+     } );
     
-    $( document ).on( 'keydown', '.tasks .task .text', function (event) {
+    $( document ).on( 'keydown', '.taskText', function (event) {
         if ( event.keyCode === 13 ) {
+            /*alert("se ha pulsado intro");*/
            ( event.target.blur() );
+           saveLists();
         }
-    })
+    } );
 
-    $( document ).on( 'click', '.tasks .task .taskCheck', function (event) {
-       if ($(event.target.parentNode.querySelector('.text')).css('text-decoration')[0]!=="n") {
-            $(event.target.parentNode.querySelector('.text')).css('text-decoration',"none");     
+    $( document ).on( 'click', '.taskCheck', function (event) {
+       if ($(event.target.parentNode.querySelector('.taskText')).css('text-decoration')[0]!=="n") {
+            $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"none");     
         }
         else {
-            $(event.target.parentNode.querySelector('.text')).css('text-decoration',"line-through"); 
+            $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"line-through"); 
         }
-    } )
+        saveLists();
+    } );
 } );
 
 
