@@ -1,11 +1,23 @@
 html {
     width: 100vw;
     height: 100vh;
-    background-image: url(../img/fondo.jpg);
+    background-image: url(../img/fondow.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
     background-size: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        width: 100vw;
+        height: 100vh;
+        background-image: url(../img/fondoh.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; 
+        background-size: 100%;
+    }
 }
 
 body{
@@ -118,13 +130,19 @@ button {
 }
 
 .tasks {
-    max-width: 30vw;
+    max-width: 40vw;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw; 
 }
+
+@media screen and (max-width:600px) {
+    .tasks{
+        max-width: 80vw;
+    }
+}
+
 .task {
     display: flex;
     justify-content: left;
-    max-width: 30vw;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw;
 }
 
