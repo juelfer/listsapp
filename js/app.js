@@ -75,7 +75,7 @@ $( document ).ready( function () {
         `<div class="task">
             <div class="deleteTask">&#128473;</div>
             <div class="taskCheck">&#10004;</div>
-            <div class="taskText" contenteditable="true">${name}</div>
+            <div class="taskText" contenteditable="true" spellcheck="false">${name}</div>
         </div>`
 
     const appendNewTask = (event) => {
@@ -119,9 +119,11 @@ $( document ).ready( function () {
     $( document ).on( 'click', '.taskCheck', function (event) {
        if ($(event.target.parentNode.querySelector('.taskText')).css('text-decoration')[0]!=="n") {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"none");     
+            $(event.target.parentNode.querySelector('.taskText')).css('color',"white");
         }
         else {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"line-through"); 
+            $(event.target.parentNode.querySelector('.taskText')).css('color',"red");
         }
         saveLists();
     } );

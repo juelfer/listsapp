@@ -33,7 +33,7 @@ button {
 .addListWrapper {
     width: 90vw;
     height: 10vh;
-    background:rgb(150, 150, 15,0.4);
+    background:rgb(192,192,192,0.65);
     text-align: right;
     position: fixed;
     left: 0;
@@ -108,7 +108,7 @@ button {
 }
 
 .list {
-    background: rgb(250, 150, 0, 0.5);
+    background:rgb(192,192,192,0.65);
     min-height: 20%;
     margin: 1vh 0.5vw 1vh 0.5vw;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw; 
@@ -119,14 +119,28 @@ button {
 
 .listHeader {
     display: flex;
-    justify-content: left;
+    flex-direction: row;
     padding: 0.1vh 0.1vw 0.1vh 0.5vw;
+    justify-content: flex-start;
 }
 
 .deleteList {
     height: 32px;
     margin-top: 0.8em;
-    float: right;
+    flex:1;
+    padding-right:0.5em;
+    max-width: 32px;
+}
+
+.clearTasks {
+    height: 32px;
+    max-width: 32px;
+    margin-top: 0.8em;
+    flex:1;
+}
+
+h4{
+flex:5;
 }
 
 .tasks {
@@ -190,9 +204,8 @@ button {
 }
 
 .taskText:focus {
-    background-color: white;
     color: blue;
-    }
+}
 
 .taskCheck {
     margin-right: 0.45vw;
@@ -216,24 +229,5 @@ button {
     cursor: default;
 }
 
-.clearTasks {
-        height: 32px;
-        margin-top: 0.8em;
-        float: right;
-}
 
-/*.clearTasks {
-    height: 2em;
-    width: 2em;
-    margin-top: 0.85em;
-    margin-right: 0.5em;
-    background-color: orange;
-    border: 2px solid orange;
-    color: black;
-    border-radius: 100%;
- }*/
 
- /*.clearTasks span{
-     size:2em;
-     text-align: center;
- }*/
