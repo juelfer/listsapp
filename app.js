@@ -126,7 +126,7 @@ $( document ).ready( function () {
         saveLists();
     } );
 
-    $( document ).on( 'click', '.clearTasks', function() {
+    $( document ).on( 'click', '.clearTasks', function(event) {
         $(event.target.parentNode.parentNode.querySelector('.tasks')).empty();
         saveLists();
     });
