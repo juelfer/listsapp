@@ -197,8 +197,8 @@ flex:5;
 }
 
 .addTask button{
-    border: 2px solid rgb(150, 150, 15);
-    background-color: rgb(150, 150, 15);
+    border: 2px solid rgb(105, 105, 100);
+    background-color: rgb(105, 105, 100);
     color: goldenrod;
     font-weight: 700;
 }

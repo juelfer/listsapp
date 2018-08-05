@@ -14,7 +14,7 @@ $( document ).ready( function () {
             <div class="listHeader">
                 <img class="deleteList" src="img/icon-delete.png">   
                 <h4>${name}</h4>
-                <img src="img/icon-warning.png" class="clearTasks">
+                <img src="img/icon-clean.png" class="clearTasks">
             </div>
             <div class="addTask">
                 <input type="text">
@@ -64,9 +64,11 @@ $( document ).ready( function () {
     } );
 
     $( '.lists' ).on( 'click', '.deleteList', function(event) {
-        let listNode = $(event.target.parentNode.parentNode);
-        listNode.detach();
-        saveLists();
+        if (confirm("This list will be removed")) {
+            let listNode = $(event.target.parentNode.parentNode);
+            listNode.detach();
+            saveLists();
+        }
     });
 
     // Construir tareas
@@ -129,8 +131,10 @@ $( document ).ready( function () {
     } );
 
     $( document ).on( 'click', '.clearTasks', function(event) {
-        $(event.target.parentNode.parentNode.querySelector('.tasks')).empty();
-        saveLists();
+        if (confirm("All tasks in this list will be deleted")) {
+            $(event.target.parentNode.parentNode.querySelector('.tasks')).empty();
+            saveLists();
+        };
     });
 } );
 
