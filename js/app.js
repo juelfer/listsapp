@@ -2,7 +2,7 @@ $( document ).ready( function () {
     let addListInput = $( '.addListWrapper input' );
     let addListButton = $( '#addList' );
     
-    $( window ).on( "load", function () {
+    $( window ).on( 'load', function () {
         if ('data' in localStorage ) {
             $('.lists').html((JSON.parse(localStorage.getItem('data'))));
          }
@@ -125,7 +125,7 @@ $( document ).ready( function () {
         }
         else {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"line-through"); 
-            $(event.target.parentNode.querySelector('.taskText')).css('color',"red");
+            $(event.target.parentNode.querySelector('.taskText')).css('color',"green");
         }
         saveLists();
     } );

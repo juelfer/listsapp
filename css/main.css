@@ -144,6 +144,8 @@ flex:5;
 }
 
 .tasks {
+    max-height: 69vh;
+    overflow: auto;
     max-width: 40vw;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw; 
 }
@@ -151,6 +153,8 @@ flex:5;
 @media screen and (max-width:600px) {
     .tasks{
         max-width: 80vw;
+        max-height: 65vh;
+        overflow: auto;
     }
 }
 
