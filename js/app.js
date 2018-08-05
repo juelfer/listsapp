@@ -26,16 +26,12 @@ $( document ).ready( function () {
         </div>`
 
     const appendNewList = () => {
-         //  cogemos el text del input
          let listName = addListInput.val().trim();
          if (listName === '') {
              return;
             };
-        // creamos el nodo .list
          let list = $( createListString( listName ) );
-        // añadimos el node al DOM
          $( '.lists' ).append( list )
-        // Limpiamos el texto del input
          addListInput.val( '' );
          saveLists();
     };
@@ -48,8 +44,6 @@ $( document ).ready( function () {
             alert("Sorry, your browser does not suppor localStorage");
         }
     }
-
-    // Listeners
 
     addListInput.on( 'keyup', function ( event ) {
         if ( event.keyCode === 13 ) {
@@ -71,8 +65,6 @@ $( document ).ready( function () {
         }
     });
 
-    // Construir tareas
-
     const createTaskString = (name) =>
         `<div class="task">
             <div class="deleteTask">&#128473;</div>
@@ -90,8 +82,6 @@ $( document ).ready( function () {
         $(event.target.parentNode.querySelector('input')).val( '' );
         saveLists();
     };
-    
-    //Funciones delegadas en tareas
     
     $( document ).on( 'keyup', '.addTask input', function (event) {
         if ( event.keyCode === 13 ) {
