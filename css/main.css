@@ -5,7 +5,7 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
-    background-size: 100%;
+    background-size: cover;
 }
 
 @media screen and (max-width: 600px) {
@@ -16,7 +16,7 @@ html {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center; 
-        background-size: 100%;
+        background-size: cover;
     }
 }
 
@@ -33,7 +33,7 @@ button {
 .addListWrapper {
     width: 90vw;
     height: 10vh;
-    background:rgb(192,192,192,0.65);
+    background:darkslategrey;
     text-align: right;
     position: fixed;
     left: 0;
@@ -55,8 +55,8 @@ button {
 }
 
 .addListWrapper input::placeholder {
-    color: rgb(252, 202, 78);
-    font-weight: 700;
+    color: goldenrod;
+    font-weight: 900;
 }
 
 .addListWrapper button {
@@ -69,13 +69,14 @@ button {
     .addListWrapper {
         width: 90vw;
         height: 6vh;
-        background:rgb(48, 99, 6,0.4);
+        background:rgb(48, 99, 6);
         text-align: center;
         position: fixed;
         left: 0;
         top: 0;
         padding: 0vh 5vw 0vh 5vw;
         font-family: 'Montserrat', sans-serif;
+        min-width: 60vw;
     }
 
     .addListWrapper input {
@@ -89,6 +90,7 @@ button {
         height: 3.5vh;
         vertical-align: middle;
         padding-top: 0.5vh;
+        width:55vw;
     }
     
     .addListWrapper input::placeholder {
@@ -108,7 +110,7 @@ button {
 }
 
 .list {
-    background:rgb(192,192,192,0.65);
+    background:rgb(192,192,192,0.85);
     min-height: 20%;
     margin: 1vh 0.5vw 1vh 0.5vw;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw; 
@@ -141,6 +143,7 @@ button {
 
 h4{
 flex:5;
+color: goldenrod;
 }
 
 .tasks {
@@ -152,6 +155,7 @@ flex:5;
 
 @media screen and (max-width:600px) {
     .tasks{
+        width: 70vw;
         max-width: 80vw;
         max-height: 65vh;
         overflow: auto;
@@ -187,13 +191,10 @@ flex:5;
     color: red;
 }
 
-.task input {
-    margin-right: 0.25vw;
-    background-color: white;
-    color: green;
-    font-weight: 700;
-    padding: 0.25vh 0.25vw 0.25vh 0.25vw;
-    max-width: 30vw;
+@media screen and (max-width:600px) {
+    .addTask input {
+        width: 50vw;
+    }
 }
 
 .addTask{
@@ -212,6 +213,10 @@ flex:5;
         border: 2px solid goldenrod;
         background-color:rgba(50, 100, 5, 0.7);
     }
+}
+
+.taskText {
+    color: darkslategrey;
 }
 
 .taskText:focus {

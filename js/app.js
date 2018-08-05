@@ -111,7 +111,7 @@ $( document ).ready( function () {
     $( document ).on( 'click', '.taskCheck', function (event) {
        if ($(event.target.parentNode.querySelector('.taskText')).css('text-decoration')[0]!=="n") {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"none");     
-            $(event.target.parentNode.querySelector('.taskText')).css('color',"white");
+            $(event.target.parentNode.querySelector('.taskText')).css('color',"darkslategrey");
         }
         else {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"line-through"); 
