@@ -69,7 +69,7 @@ button {
     .addListWrapper {
         width: 90vw;
         height: 6vh;
-        background:rgb(150, 150, 15,0.4);
+        background:rgb(48, 99, 6,0.4);
         text-align: center;
         position: fixed;
         left: 0;
@@ -201,6 +201,13 @@ flex:5;
     background-color: rgb(105, 105, 100);
     color: goldenrod;
     font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+    .addTask button{
+        border: 2px solid goldenrod;
+        background-color:rgba(50, 100, 5, 0.7);
+    }
 }
 
 .taskText:focus {
