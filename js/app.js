@@ -5,6 +5,8 @@ $( document ).ready( function () {
     if ('data' in localStorage ) {
         $('.lists').html((JSON.parse(localStorage.getItem('data'))));
     }
+
+    jscolor.installByClassName("jscolor");
       
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}`
     const createListString = name =>
@@ -67,8 +69,9 @@ $( document ).ready( function () {
         `<div class="task">
             <div class="deleteTask">&#128473;</div>
             <div class="taskCheck">&#10004;</div>
+            <input id="changeColor" class="jscolor {valueElement:null,value:'c0c0c2'}"></input>
             <div class="taskText" contenteditable="true" spellcheck="false">${name}</div>
-        </div>`
+            </div>`
 
     const appendNewTask = (event) => {
         let taskName = $(event.target.parentNode.querySelector('input')).val().trim();
@@ -84,6 +87,7 @@ $( document ).ready( function () {
     $( document ).on( 'keyup', '.addTask input', function (event) {
         if ( event.keyCode === 13 ) {
             appendNewTask(event);
+            jscolor.installByClassName("jscolor");
             saveLists();
         }
      } );
@@ -127,6 +131,12 @@ $( document ).ready( function () {
                 $(event.target.parentNode.parentNode.querySelector('.tasks')).empty();
                 saveLists();
         };
+    });
+
+    $(document).on('change', '#changeColor', function(event) {
+            let newBgrColor=$('#changeColor').css('background-color');
+            $(event.target.parentNode).css('background-color', newBgrColor);
+            saveLists();
     });
 } );
 

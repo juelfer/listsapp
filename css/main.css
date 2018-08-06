@@ -252,5 +252,17 @@ color: darkslategrey;
     cursor: default;
 }
 
-
-
+#changeColor {
+    border: 1px solid black;
+    border-radius: 20%;
+    background-image: none; 
+    background-color: rgb(192,192,192,0.85); 
+    color: rgb(192,192,192,0.85);
+    margin-right: 0.45vw;
+   /* margin-bottom: 0.1vh;*/
+    height: 12px; /*1em;*/
+    width: 12px;/*1em;*/
+    /*max-height: 18px;/*1em;*/
+    /*max-width: 18px;/*1em;*/
+    /*padding: 0.2em;*/
+}
