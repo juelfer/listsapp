@@ -198,7 +198,14 @@ color: darkslategrey;
 }
 
 .addTask{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     padding: 0.25vh 0.25vw 0.25vh 0.25vw;
+}
+
+.addTask input {
+    flex: 3;
 }
 
 .addTask button{

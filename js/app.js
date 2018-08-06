@@ -2,12 +2,10 @@ $( document ).ready( function () {
     let addListInput = $( '.addListWrapper input' );
     let addListButton = $( '#addList' );
     
-    $( window ).on( 'load', function () {
-        if ('data' in localStorage ) {
-            $('.lists').html((JSON.parse(localStorage.getItem('data'))));
-         }
-    });
-    
+    if ('data' in localStorage ) {
+        $('.lists').html((JSON.parse(localStorage.getItem('data'))));
+    }
+      
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}`
     const createListString = name =>
         `<div class="list" id="${generateId('list')}">
@@ -23,7 +21,7 @@ $( document ).ready( function () {
             <div class="tasks">
                 
             </div>
-        </div>`
+        </div>`;
 
     const appendNewList = () => {
          let listName = addListInput.val().trim();
@@ -41,7 +39,7 @@ $( document ).ready( function () {
             localStorage.setItem('data', JSON.stringify($('.lists').html()));
         }
         else{
-            alert("Sorry, your browser does not suppor localStorage");
+            alert("Aw, geez. This is embarrasing, but your browser does not seem to support localStorage.");
         }
     }
 
@@ -58,7 +56,7 @@ $( document ).ready( function () {
     } );
 
     $( '.lists' ).on( 'click', '.deleteList', function(event) {
-        if (confirm("This list will be removed")) {
+        if (confirm("W-Wait! The entire list will be removed if you press 'Accept'! Won't someone think of the children?!")) {
             let listNode = $(event.target.parentNode.parentNode);
             listNode.detach();
             saveLists();
@@ -112,18 +110,22 @@ $( document ).ready( function () {
        if ($(event.target.parentNode.querySelector('.taskText')).css('text-decoration')[0]!=="n") {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"none");     
             $(event.target.parentNode.querySelector('.taskText')).css('color',"darkslategrey");
+            $(event.target).css('background-color',"green");
+            $(event.target).css('color',"white");
         }
         else {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"line-through"); 
             $(event.target.parentNode.querySelector('.taskText')).css('color',"green");
+            $(event.target).css('background-color',"white");
+            $(event.target).css('color',"green");
         }
         saveLists();
     } );
 
     $( document ).on( 'click', '.clearTasks', function(event) {
-        if (confirm("All tasks in this list will be deleted")) {
-            $(event.target.parentNode.parentNode.querySelector('.tasks')).empty();
-            saveLists();
+            if (confirm("Are you sure? Your cute little pretty tasks will be mercilessly obliterated and never to be seen again! Is it ok?")) {
+                $(event.target.parentNode.parentNode.querySelector('.tasks')).empty();
+                saveLists();
         };
     });
 } );
