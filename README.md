@@ -18,7 +18,7 @@ Opcional:
 - [x] Marcar tarea como completada
 - [x] Borrar tareas 
 - [x] Editar texto de la tarea.
-- [ ] Cambiar el color de las tareas individualmente (Se debe buscar un plugin de terceros de color-picker)
+- [x] Cambiar el color de las tareas individualmente (Se debe buscar un plugin de terceros de color-picker)
 - [x] Guardar el estado en localStorage
 
 
