@@ -169,7 +169,7 @@ color: darkslategrey;
 }
 
 .deleteTask {
-    margin-right: 0.45vw;
+    margin-right: 0.25vw;
     margin-bottom: 0.1vh;
     border: none;
     background-color: red;
@@ -186,9 +186,7 @@ color: darkslategrey;
 }
 
 .deleteTask:hover{
-    background: white;
-    cursor: default;
-    color: red;
+    cursor: default;   
 }
 
 @media screen and (max-width:600px) {
@@ -231,11 +229,11 @@ color: darkslategrey;
 }
 
 .taskCheck {
-    margin-right: 0.45vw;
+    margin-right: 0.25vw;
     margin-bottom: 0.1vh;
     border: none;
-    background-color: green;
-    color: white;
+    background-color: white;
+    color: green;
     border-radius: 20%;
     min-height: 1em;
     min-width: 1em;
@@ -247,8 +245,6 @@ color: darkslategrey;
 }
 
 .taskCheck:hover {
-    background-color:white;
-    color:green;
     cursor: default;
 }
 
@@ -258,11 +254,13 @@ color: darkslategrey;
     background-image: none; 
     background-color: rgb(192,192,192,0.85); 
     color: rgb(192,192,192,0.85);
-    margin-right: 0.45vw;
-   /* margin-bottom: 0.1vh;*/
-    height: 12px; /*1em;*/
-    width: 12px;/*1em;*/
-    /*max-height: 18px;/*1em;*/
-    /*max-width: 18px;/*1em;*/
-    /*padding: 0.2em;*/
+    margin-right: 0.25vw;
+    height: 12px;
+    width: 12px;
+}
+
+#paint {
+    height: 1em;
+    width: 1em;
+    margin-right: 0.25vw;
 }

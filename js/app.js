@@ -67,9 +67,10 @@ $( document ).ready( function () {
 
     const createTaskString = (name) =>
         `<div class="task">
-            <div class="deleteTask">&#128473;</div>
+            <div class="deleteTask">X</div>
             <div class="taskCheck">&#10004;</div>
             <input id="changeColor" class="jscolor {valueElement:null,value:'c0c0c2'}"></input>
+            <img id="paint" src="img/icon-paint.png">
             <div class="taskText" contenteditable="true" spellcheck="false">${name}</div>
             </div>`
 
@@ -114,14 +115,14 @@ $( document ).ready( function () {
        if ($(event.target.parentNode.querySelector('.taskText')).css('text-decoration')[0]!=="n") {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"none");     
             $(event.target.parentNode.querySelector('.taskText')).css('color',"darkslategrey");
-            $(event.target).css('background-color',"green");
-            $(event.target).css('color',"white");
+            $(event.target).css('background-color',"white");
+            $(event.target).css('color',"green");
         }
         else {
             $(event.target.parentNode.querySelector('.taskText')).css('text-decoration',"line-through"); 
             $(event.target.parentNode.querySelector('.taskText')).css('color',"green");
-            $(event.target).css('background-color',"white");
-            $(event.target).css('color',"green");
+            $(event.target).css('background-color',"green");
+            $(event.target).css('color',"white");
         }
         saveLists();
     } );
@@ -133,8 +134,8 @@ $( document ).ready( function () {
         };
     });
 
-    $(document).on('change', '#changeColor', function(event) {
-            let newBgrColor=$('#changeColor').css('background-color');
+    $(document).on('click', '.task #paint', function (event) {
+            let newBgrColor=$(event.target.parentNode.querySelector('#changeColor')).css('background-color');
             $(event.target.parentNode).css('background-color', newBgrColor);
             saveLists();
     });
