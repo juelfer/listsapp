@@ -1,28 +1,19 @@
-#  Scrum Board with jQuery - ACTIVIDAD 1
+#  Scrum Board with jQuery 
 
-Vamos a crear una app web con HTML, CSS, JS y jQuery. 
+App web con HTML, CSS, JS y jQuery para gestionar la metodología scrum. Consiste en un gestor de listas con sus correspondientes tareas.
 
-La misión del app es poder gestionar la metodología scrum. De modo que tengamos listas que contienen tareas.
+Features:
 
-## BackLog
+- Layout responsive con flexbox
+- Función de añadir listas nuevas
+- Función de borrar listas
+- Función de añadir tareas a las listas
+- Función de borrar tareas 
+- Función de marcar tarea como completada
+- Función de editar texto de la tarea
+- Plug-in de color picker externo para cambiar el color de fondo RBG de cada tarjeta
+- Función de guardado de estado en localStorage
 
-- [x] Layout responsive con flexbox
-- [x] Mejorar el estilo del boceto
-- [x] Añadir listas nuevas
-- [x] Borrar listas
-- [x] Añadir tareas a las listas
-- [x] Borrar tareas 
+## Demo
 
-Opcional:
-
-- [x] Marcar tarea como completada
-- [x] Borrar tareas 
-- [x] Editar texto de la tarea.
-- [x] Cambiar el color de las tareas individualmente (Se debe buscar un plugin de terceros de color-picker)
-- [x] Guardar el estado en localStorage
-
-
-## Boceto
-
-![](./frontPreview.png)
-
+App accesible online en https://juelfer.github.io/listsapp/
